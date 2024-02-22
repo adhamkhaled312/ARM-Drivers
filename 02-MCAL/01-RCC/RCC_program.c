@@ -37,8 +37,8 @@ void MRCC_voidInitSysClock(void)
         SET_BIT(RCC_CFGR,1);        
         CLR_BIT(RCC_CFGR,0);
         
-        RC_CR &= ~((0b1111)<<18)        /* Clear multiplication bits */
-        RC_CR |= (RCC_PLL_MUL_VAL)<<18  /* Set multiplication value */
+        RCC_CR &= ~((0b1111)<<18);        /* Clear multiplication bits */
+        RCC_CR |= (RCC_PLL_MUL_VAL)<<18; /* Set multiplication value */
 
         /* Configure PLL source clock*/
         #if RCC_PLL_INPUT==RCC_PLL_HSE
@@ -50,7 +50,7 @@ void MRCC_voidInitSysClock(void)
             SET_BIT(RCC_CFGR,16);       /*Enable HSE as PLL source clock*/    
             SET_BIT(RCC_CFGR,17);       /*Divide by 2*/
         #elif RCC_PLL_INPUT==RCC_PLL_HSI_DIV_2
-            SET_BIT(RCC_CR,0)           /* Enable HSI */
+            SET_BIT(RCC_CR,0);           /* Enable HSI */
             CLR_BIT(RCC_CFGR,16);       /*Enable HSI as PLL source clock*/
         #else 
             #error("YOU CHOOSE WRONG CLOCK SOURCE FOR PLL")
