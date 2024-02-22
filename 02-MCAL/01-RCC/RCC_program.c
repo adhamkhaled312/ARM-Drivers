@@ -32,6 +32,11 @@ void MRCC_voidInitSysClock(void)
 
     #elif RCC_CLOCK_TYPE==RCC_PLL
         CLR_BIT(RCC_CR,24);             /* Disable PLL for configurations*/
+
+        /* Select PLL as system clock  bit 1:0 = 0b10*/
+        SET_BIT(RCC_CFGR,1);        
+        CLR_BIT(RCC_CFGR,0);
+        
         RC_CR &= ~((0b1111)<<18)        /* Clear multiplication bits */
         RC_CR |= (RCC_PLL_MUL_VAL)<<18  /* Set multiplication value */
 
@@ -52,7 +57,7 @@ void MRCC_voidInitSysClock(void)
         #endif       
         
         SET_BIT(RC_CR,24);              /* Enable PLL */
-        while(!(GET_BIT(RCC_CR,25)));
+        while(!(GET_BIT(RCC_CR,25)));   /* Wait until stable */
     #else
         #error("YOU CHOOSE WRONG CLOCK TYPE")
     #endif
