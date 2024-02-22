@@ -45,11 +45,11 @@ void MRCC_voidInitSysClock(void)
             SET_BIT(RCC_CR,16);         /* Enable HSE */
             SET_BIT(RCC_CFGR,16);       /* Enable HSE as PLL source clock*/
             CLR_BIT(RCC_CFGR,17);       /* No prescale*/
-        #elif RCC_PLL_INPUT==RCC_PLL_IN_HSE_DIV_2
+        #elif RCC_PLL_INPUT==RCC_PLL_HSE_DIV_2
             SET_BIT(RCC_CR,16);         /* Enable HSE */
             SET_BIT(RCC_CFGR,16);       /*Enable HSE as PLL source clock*/    
             SET_BIT(RCC_CFGR,17);       /*Divide by 2*/
-        #elif RCC_PLL_INPUT==RCC_PLL_IN_HSI_DIV_2
+        #elif RCC_PLL_INPUT==RCC_PLL_HSI_DIV_2
             SET_BIT(RCC_CR,0)           /* Enable HSI */
             CLR_BIT(RCC_CFGR,16);       /*Enable HSI as PLL source clock*/
         #else 
