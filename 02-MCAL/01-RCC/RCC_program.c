@@ -54,7 +54,7 @@ void MRCC_voidInitSysClock(void)
         SET_BIT(RC_CR,24);              /* Enable PLL */
         while(!(GET_BIT(RCC_CR,25)));
     #else
-        #error("YOU CHOOSE WRONG CLOC TYPE")
+        #error("YOU CHOOSE WRONG CLOCK TYPE")
     #endif
     /*Configurations for bus prescalers */
     RCC_CFGR |= (RCC_AHB_PRESCALE<<4);
