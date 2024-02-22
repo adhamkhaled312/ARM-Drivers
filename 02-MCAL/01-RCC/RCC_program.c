@@ -36,7 +36,7 @@ void MRCC_voidInitSysClock(void)
         RC_CR |= (RCC_PLL_MUL_VAL)<<18  /* Set multiplication value */
 
         /* Configure PLL source clock*/
-        #if RCC_PLL_INPUT==RCC_PLL _HSE
+        #if RCC_PLL_INPUT==RCC_PLL_HSE
             SET_BIT(RCC_CR,16);         /* Enable HSE */
             SET_BIT(RCC_CFGR,16);       /* Enable HSE as PLL source clock*/
             CLR_BIT(RCC_CFGR,17);       /* No prescale*/

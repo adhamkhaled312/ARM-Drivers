@@ -22,7 +22,7 @@
 #define RCC_CFGR2           (*((u32*)(RCC_BASE_ADDRESS+0x02C)))
 
 /* RCC clock options */
-#define RCC_HCI             0
+#define RCC_HSI             0
 #define RCC_HSE_CRYSTAL     1
 #define RCC_HSE_RC          2
 #define RCC_PLL             3
