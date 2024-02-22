@@ -27,6 +27,10 @@
 #define RCC_HSE_RC          2
 #define RCC_PLL             3
 
+/* CSS options */
+#define RCC_CSS_ENABLE      1
+#define RCC_CSS_DISABLE     0
+
 /* PLL clock source options*/
 #define RCC_PLL_HSI_DIV_2   0
 #define RCC_PLL_HSE         1

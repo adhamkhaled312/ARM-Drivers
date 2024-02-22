@@ -56,12 +56,16 @@ void MRCC_voidInitSysClock(void)
     #else
         #error("YOU CHOOSE WRONG CLOC TYPE")
     #endif
-
     /*Configurations for bus prescalers */
     RCC_CFGR |= (RCC_AHB_PRESCALE<<4);
     RCC_CFGR |= (RCC_APB1_PRESCALE<<8);
     RCC_CFGR |= (RCC_APB2_PRESCALE<<11);
-
+    
+    #if RCC_CLOCK_SECURITY_SYSTEM==RCC_CSS_DISABLE
+        CLR_BIT(RCC_CR,19);
+    #elif RCC_CLOCK_SECURITY_SYSTEM==RCC_CSS_ENABLE
+        SET_BIT(RCC_CR,19);
+    #endif
 }
 
 void MRCC_voidEnableClock(u8 copy_u8BusId, u8 copy_u8PerId)
