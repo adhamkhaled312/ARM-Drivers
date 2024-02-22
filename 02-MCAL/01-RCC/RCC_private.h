@@ -8,18 +8,18 @@
 
 #define RCC_BASE_ADDRESS    0x40021000 
 /* RCC registers */
-#define RCC_CR              (*((u32*)(RCC_BASE_ADDRESS+0x000)))
-#define RCC_CFGR            (*((u32*)(RCC_BASE_ADDRESS+0x004)))
-#define RCC_CIR             (*((u32*)(RCC_BASE_ADDRESS+0x008)))
-#define RCC_APB2RSTR        (*((u32*)(RCC_BASE_ADDRESS+0x00C)))
-#define RCC_APB1RSTR        (*((u32*)(RCC_BASE_ADDRESS+0x010)))
-#define RCC_AHBENR          (*((u32*)(RCC_BASE_ADDRESS+0x014)))
-#define RCC_APB2ENR         (*((u32*)(RCC_BASE_ADDRESS+0x018)))
-#define RCC_APB1ENR         (*((u32*)(RCC_BASE_ADDRESS+0x01C)))
-#define RCC_BDCR            (*((u32*)(RCC_BASE_ADDRESS+0x020)))
-#define RCC_CSR             (*((u32*)(RCC_BASE_ADDRESS+0x024)))
-#define RCC_AHBSTR          (*((u32*)(RCC_BASE_ADDRESS+0x028)))
-#define RCC_CFGR2           (*((u32*)(RCC_BASE_ADDRESS+0x02C)))
+#define RCC_CR              (*((volatile u32*)(RCC_BASE_ADDRESS+0x000)))
+#define RCC_CFGR            (*((volatile u32*)(RCC_BASE_ADDRESS+0x004)))
+#define RCC_CIR             (*((volatile u32*)(RCC_BASE_ADDRESS+0x008)))
+#define RCC_APB2RSTR        (*((volatile u32*)(RCC_BASE_ADDRESS+0x00C)))
+#define RCC_APB1RSTR        (*((volatile u32*)(RCC_BASE_ADDRESS+0x010)))
+#define RCC_AHBENR          (*((volatile u32*)(RCC_BASE_ADDRESS+0x014)))
+#define RCC_APB2ENR         (*((volatile u32*)(RCC_BASE_ADDRESS+0x018)))
+#define RCC_APB1ENR         (*((volatile u32*)(RCC_BASE_ADDRESS+0x01C)))
+#define RCC_BDCR            (*((volatile u32*)(RCC_BASE_ADDRESS+0x020)))
+#define RCC_CSR             (*((volatile u32*)(RCC_BASE_ADDRESS+0x024)))
+#define RCC_AHBSTR          (*((volatile u32*)(RCC_BASE_ADDRESS+0x028)))
+#define RCC_CFGR2           (*((volatile u32*)(RCC_BASE_ADDRESS+0x02C)))
 
 /* RCC clock options */
 #define RCC_HSI             0
