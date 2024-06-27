@@ -3,8 +3,8 @@
 /* Date      : 24 JUNE 2024                           */
 /* Version   : V01                                    */
 /******************************************************/
-#ifndef GPIO_PRIVATE_H
-#define GPIO_PRIVATE_H
+#ifndef EXTI_PRIVATE_H
+#define EXTI_PRIVATE_H
 
 /* Registers */
 #define NVIC_BASE_ADDRESS  0xE000EF00
