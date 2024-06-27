@@ -9,7 +9,7 @@
 #include "NVIC_interface.h"
 #include "NVIC_private.h"
 #include "NVIC_config.h"
-void MNVIC_VoidEnableInterrupt(u8 Copy_u8IntNumber)
+void MNVIC_voidEnableInterrupt(u8 Copy_u8IntNumber)
 {
     if(Copy_u8IntNumber <= 31)
     {
@@ -25,7 +25,7 @@ void MNVIC_VoidEnableInterrupt(u8 Copy_u8IntNumber)
         /* Return Error */
     }
 }
-void MNVIC_VoidDisableInterrupt(u8 Copy_u8IntNumber)
+void MNVIC_voidDisableInterrupt(u8 Copy_u8IntNumber)
 {
     if(Copy_u8IntNumber <= 31)
     {
@@ -41,7 +41,7 @@ void MNVIC_VoidDisableInterrupt(u8 Copy_u8IntNumber)
         /* Return Error */
     }
 }
-void MNVIC_VoidSetPendingFlag(u8 Copy_u8IntNumber)
+void MNVIC_voidSetPendingFlag(u8 Copy_u8IntNumber)
 {
     if(Copy_u8IntNumber <= 31)
     {
@@ -57,7 +57,7 @@ void MNVIC_VoidSetPendingFlag(u8 Copy_u8IntNumber)
         /* Return Error */
     }
 }
-void MNVIC_VoidDisablePendingFlag(u8 Copy_u8IntNumber)
+void MNVIC_voidDisablePendingFlag(u8 Copy_u8IntNumber)
 {
     if(Copy_u8IntNumber <= 31)
     {
