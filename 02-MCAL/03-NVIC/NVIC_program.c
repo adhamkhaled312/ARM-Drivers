@@ -75,7 +75,7 @@ void MNVIC_VoidDisablePendingFlag(u8 Copy_u8IntNumber)
 }
 u8 MNVIC_u8GetActiveFlag(u8 Copy_u8IntNumber)
 {
-    u8 Local_u8Result;
+    u8 Local_u8Result=0;
     if(Copy_u8IntNumber <= 31)
     {
         Local_u8Result=GET_BIT(NVIC_IABR0,Copy_u8IntNumber);
