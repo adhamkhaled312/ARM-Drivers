@@ -43,7 +43,7 @@ void MGPIO_voidSetPinDirection(u8 copy_u8Port , u8 copy_u8Pin,u8 copy_u8Mode)
             else if(copy_u8Pin<=15)
             {
                 copy_u8Pin -=8;     
-                GPIOB_CRL &= ~((0b111)<<(copy_u8Pin*4));        /* Reset mode bits*/   
+                GPIOB_CRL &= (~((0b111)<<(copy_u8Pin*4)));        /* Reset mode bits*/   
                 GPIOB_CRL |= (copy_u8Mode) << (copy_u8Pin*4);   /* Set mode bits */
             }   
             break;
