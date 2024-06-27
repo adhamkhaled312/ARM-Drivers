@@ -53,16 +53,16 @@ void MRCC_voidInitSysClock(void)
             SET_BIT(RCC_CR,0);           /* Enable HSI */
             CLR_BIT(RCC_CFGR,16);       /*Enable HSI as PLL source clock*/
         #else 
-            #error("YOU CHOOSE WRONG CLOCK SOURCE FOR PLL")
+           // #error("YOU CHOOSE WRONG CLOCK SOURCE FOR PLL")
         #endif       
         
         SET_BIT(RC_CR,24);              /* Enable PLL */
         while(!(GET_BIT(RCC_CR,25)));   /* Wait until stable */
     #else
-        #error("YOU CHOOSE WRONG CLOCK TYPE")
+        //#error("YOU CHOOSE WRONG CLOCK TYPE")
     #endif
     /*Configurations for bus prescalers */
-    RCC_CFGR |= (RCC_AHB_PRESCALE<<4);
+    RCC_CFGR |= RCC_AHB_PRESCALE<<4;
     RCC_CFGR |= (RCC_APB1_PRESCALE<<8);
     RCC_CFGR |= (RCC_APB2_PRESCALE<<11);
     
