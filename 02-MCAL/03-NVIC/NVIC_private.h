@@ -7,7 +7,7 @@
 #define NVIC_PRIVATE_H
 
 /* Registers */
-#define NVIC_BASE_ADDRESS  0xE000EF00
+#define NVIC_BASE_ADDRESS  0xE000E100
 
 #define NVIC_ISER0                  (*((volatile u32*)(NVIC_BASE_ADDRESS+0x000))) /* Enable external interrupts from 0 to 31  */
 #define NVIC_ISER1                  (*((volatile u32*)(NVIC_BASE_ADDRESS+0x004))) /* Enable external interrupts from 32 to 59 */
@@ -30,14 +30,14 @@
 /* Priority groups */
 
 /* 4 Groups 0 sub */
-#define NVIC_PRIORITY_GROUP1        0x05FA0300  
+#define NVIC_GROUP4_SUB0         0x05FA0300  
 /* 3 Groups 1 sub */
-#define NVIC_PRIORITY_GROUP2        0x05FA0400  
+#define NVIC_GROUP3_SUB1         0x05FA0400  
 /* 2 Groups 2 sub */
-#define NVIC_PRIORITY_GROUP3        0x05FA0500  
+#define NVIC_GROUP2_SUB2         0x05FA0500  
 /* 1 Groups 3 sub */
-#define NVIC_PRIORITY_GROUP4        0x05FA0600  
+#define NVIC_GROUP1_SUB3         0x05FA0600  
 /* 0 Groups 4 sub */
-#define NVIC_PRIORITY_GROUP5        0x05FA0700  
+#define NVIC_GROUP0_SUB4         0x05FA0700  
 
 #endif
