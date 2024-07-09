@@ -49,6 +49,9 @@ void MSTK_voidSetBusyWait( u32 Copy_u32Ticks )
 
 void MSTK_voidSetIntervalSingle  ( u32 Copy_u32Ticks, void (*Copy_ptr)(void) )
 {
+	/* Disable timer */
+	CLR_BIT(MSTK->CTRL,0);
+	MSTK->VAL=0;
 	/* Load ticks to load register */
 	MSTK -> LOAD = Copy_u32Ticks;
 	
