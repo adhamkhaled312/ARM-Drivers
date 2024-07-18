@@ -8,7 +8,7 @@
 
 void MSPI1_voidInit(void); 
 
-void MSPI1_voidSendReceiveSynch(u8 Copy_u8DataToTransmit, u8 *Copy_DataToReceive);
+void MSPI1_voidSendReceiveSynch(u8 Copy_u8DataToTransmit, u8 *Ref_u8DataToReceive);
 
 void MSPI1_voidSendReceiveAsynch(u8 Copy_u8DataToTransmit, void (*CallBack)(u8));
 
