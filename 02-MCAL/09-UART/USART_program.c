@@ -36,9 +36,21 @@ void MUSART1_voidTransmit(u8 Copy_u8Arr[])
 
 u8 MUSART1_u8Receive(void)
 {
+	u16 Loc_timeout=0;
 	u8 Loc_u8ReceivedData = 0;
-	while((GET_BIT((USART1 -> SR), 5)) == 0);
-	Loc_u8ReceivedData = USART1 -> DR;
+	while((GET_BIT((USART1 -> SR), 5)) == 0)
+	{
+		Loc_timeout++;
+		if(Loc_timeout==10000){
+			Loc_u8ReceivedData=255;
+			break;
+		}
+	}
+	if(Loc_u8ReceivedData==0)
+	{
+		Loc_u8ReceivedData = USART1 -> DR;
+
+	}
 	return (Loc_u8ReceivedData);
 }
 
