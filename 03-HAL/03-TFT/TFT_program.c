@@ -79,6 +79,77 @@ void HTFT_voidDisplayImage (const u16* Copy_Image)
 
 }
 
+void HTFT_voidFillColor(u16 Copy_u16Color)
+{
+	u16 counter;
+	u8 Data;
+
+	/* Set X Address */
+	voidWriteCommand(0x2A);
+	voidWriteData(0);
+	voidWriteData(0);
+	voidWriteData(0);
+	voidWriteData(127);
+	
+	/* Set Y Address */
+	voidWriteCommand(0x2B);
+	voidWriteData(0);
+	voidWriteData(0);
+	voidWriteData(0);
+	voidWriteData(159);
+
+	/* RAM Write */
+	voidWriteCommand(0x2C);
+
+	for(counter = 0; counter< 20480;counter++)
+	{
+		Data = Copy_u16Color >> 8;
+
+		/* Write the high byte */
+		voidWriteData(Data);
+		/* Write the low byte */
+		Data = Copy_u16Color & 0x00ff;
+		voidWriteData(Data);
+	}
+}
+void HTFT_voidSetRectangle(u8 Copy_u8X1,u8 Copy_u8X2,u8 Copy_u8Y1,u8 Copy_u8Y2,u16 Copy_u16Color)
+{
+	u16 counter;
+	u8 Data;
+
+	u16 size=(Copy_u8X2-Copy_u8X1)*(Copy_u8Y2-Copy_u8Y1);
+	/* Set X Address */
+	voidWriteCommand(0x2A);
+	voidWriteData(0);
+	voidWriteData(Copy_u8X1);
+	voidWriteData(0);
+	voidWriteData(Copy_u8X2);
+	
+	/* Set Y Address */
+	voidWriteCommand(0x2B);
+	voidWriteData(0);
+	voidWriteData(Copy_u8Y1);
+	voidWriteData(0);
+	voidWriteData(Copy_u8Y2);
+
+	/* RAM Write */
+	voidWriteCommand(0x2C);
+
+	for(counter = 0; counter< size;counter++)
+	{
+		Data = Copy_u16Color >> 8;
+
+		/* Write the high byte */
+		voidWriteData(Data);
+		/* Write the low byte */
+		Data = Copy_u16Color & 0x00ff;
+		voidWriteData(Data);
+	}
+}
+
+
+
+
 static void voidWriteCommand(u8 Copy_u8Command)
 {
 	u8 Local_u8Temp;
